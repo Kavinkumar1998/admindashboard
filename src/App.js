@@ -1,23 +1,56 @@
-import logo from './logo.svg';
+import { Redirect, Route, Switch,Link } from 'react-router-dom';
 import './App.css';
+import Components from './Components/Components';
+import Dashboard from'./Components/Dashboard';
+import Charts from './Components/Charts'; 
+import Pages from './Components/Pages';
+import Tables from './Components/Tables';
+import Utilities from './Components/Utilities';
+import Nopage from './Components/Nopage';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <Switch>
+
+<Route exact path ="/">
+  <Dashboard/>
+</Route>
+
+<Route path ="/charts">
+<Charts/>
+</Route>
+
+
+<Route path ="/components">
+  <Components/>
+</Route>
+
+
+<Route path ="/utilities">
+  <Utilities/>
+</Route>
+
+
+<Route path ="/tables">
+  <Tables/>
+</Route>
+
+
+<Route path ="/pages">
+ <Pages/> 
+</Route>
+
+
+
+<Route path ="**">
+ <Nopage/> 
+</Route>
+
+
+
+   </Switch>
     </div>
   );
 }
